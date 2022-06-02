@@ -8,7 +8,7 @@ app.use("/api/user", router);
 
 mongoose
   .connect(
-    "mongodb+srv://mohitchauhan4u:9306138730@blogwebsitemern.wlhbo.mongodb.net/test"
+    "mongodb+srv://mohitchauhan4u:9306138730@blogwebsitemern.wlhbo.mongodb.net/blog-website-mern"
   )
   .then(() => app.listen(5000))
   .then(() => console.log("Connected To Database"))
