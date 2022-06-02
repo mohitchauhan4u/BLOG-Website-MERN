@@ -20,7 +20,7 @@ export const signup = async (req, res, next) => {
   try {
     existingUser = await User.findOne({ email });
   } catch (error) {
-    console.error("ERROR", error);
+    return console.error("ERROR", error);
   }
   if (existingUser) {
     return res
