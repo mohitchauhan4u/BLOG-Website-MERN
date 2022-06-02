@@ -35,7 +35,7 @@ export const signup = async (req, res, next) => {
   try {
     user.save();
   } catch (error) {
-    console.error("ERROR", error);
+    return console.error("ERROR", error);
   }
   return res.status(201).json({ user });
 };
