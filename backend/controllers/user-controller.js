@@ -36,7 +36,7 @@ export const signup = async (req, res, next) => {
   });
 
   try {
-    user.save();
+    await user.save();
   } catch (error) {
     return console.error("ERROR", error);
   }
