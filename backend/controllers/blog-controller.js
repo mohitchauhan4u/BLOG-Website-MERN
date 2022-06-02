@@ -60,3 +60,17 @@ export const deleteBlog = async (req, res, next) => {
   }
   return res.status(200).json({ message: "Blog Deleted Successfully!!!" });
 };
+
+export const getById = async (req, res, next) => {
+  const blogId = req.params.id;
+  let blog;
+  try {
+    blog = await Blog.findById(blogId);
+  } catch (error) {
+    console.error("ERROR", error);
+  }
+  if (!blog) {
+    return res.status(404).json({ message: "No Blog Found" });
+  }
+  return res.status(200).json({ blog });
+};
