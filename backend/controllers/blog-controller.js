@@ -51,7 +51,7 @@ export const deleteBlog = async (req, res, next) => {
   const blogId = req.params.id;
   let blog;
   try {
-    blog = await Blog.findByIdAndDelete(blogId);
+    blog = await Blog.findByIdAndRemove(blogId);
   } catch (error) {
     console.error("ERROR", error);
   }
