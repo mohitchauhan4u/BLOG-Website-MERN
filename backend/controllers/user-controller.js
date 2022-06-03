@@ -33,6 +33,7 @@ export const signup = async (req, res, next) => {
     name,
     email,
     password: hashedPassword,
+    blogs: [],
   });
 
   try {
@@ -56,6 +57,7 @@ export const login = async (req, res, next) => {
       .status(404)
       .json({ message: "Could not find any user by this email " });
   }
+
   const isPasswordCorrect = bcrypt.compareSync(password, existingUser.password);
   if (!isPasswordCorrect) {
     return res.status(400).json({ message: "Incorrect Password" });
