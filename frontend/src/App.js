@@ -1,5 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Auth from "./components/Auth";
+import Blogs from "./components/Blogs";
+import UserBlog from "./components/UserBlog";
+import BlogDetails from "./components/BlogDetail";
+import AddBlog from "./components/AddBlog";
 import Header from "./components/Header";
 
 function App() {
@@ -10,7 +15,11 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/auth" />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/myBlogs" element={<UserBlog />} />
+          <Route path="/myBlogs/:id" element={<BlogDetails />} />
+          <Route path="/blogs/add" element={<AddBlog />} />
         </Routes>
       </main>
     </>
