@@ -1,9 +1,19 @@
-import React from "react";
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Box,
+  Button,
+  Tab,
+  Tabs,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 const Header = () => {
+  const [value, setValue] = useState(0);
   return (
     <AppBar
+      position="sticky"
       sx={{
         background:
           "linear-gradient(90deg, rgba(2,0,36,1) 2%, rgba(9,9,121,1) 22%, rgba(46,165,222,1) 62%, rgba(0,212,255,1) 88%)",
@@ -11,6 +21,16 @@ const Header = () => {
     >
       <Toolbar>
         <Typography variant="h4">BLOG WEBSITE</Typography>
+        <Box display={"flex"} margin={"auto"}>
+          <Tabs
+            textColor="inherit"
+            value={value}
+            onChange={(e, value) => setValue(value)}
+          >
+            <Tab label="All Blogs" />
+            <Tab label="My Blogs" />
+          </Tabs>
+        </Box>
         <Box display={"flex"} marginLeft={"auto"}>
           <Button
             variant="contained"
@@ -25,6 +45,13 @@ const Header = () => {
             sx={{ margin: 1, borderRadius: 10 }}
           >
             SignUp
+          </Button>
+          <Button
+            variant="contained"
+            color="warning"
+            sx={{ margin: 1, borderRadius: 10 }}
+          >
+            LogOut
           </Button>
         </Box>
       </Toolbar>
