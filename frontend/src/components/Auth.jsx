@@ -3,8 +3,10 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { authActions } from "../store";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     name: "",
@@ -35,11 +37,13 @@ const Auth = () => {
     if (isSignup) {
       sendRequest("signup")
         .then(() => dispatch(authActions.login()))
-        .then((data) => console.log(data));
+        .then((data) => console.log(data))
+        .then(() => navigate("/blogs"));
     } else {
       sendRequest()
         .then(() => dispatch(authActions.login()))
-        .then((data) => console.log(data));
+        .then((data) => console.log(data))
+        .then(() => navigate("/blogs"));
     }
     sendRequest();
   };
