@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store";
 
 const Auth = () => {
+  const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -30,9 +33,13 @@ const Auth = () => {
     e.preventDefault();
     console.log(inputs);
     if (isSignup) {
-      sendRequest("signup").then((data) => console.log(data));
+      sendRequest("signup")
+        .then(() => dispatch(authActions.login()))
+        .then((data) => console.log(data));
     } else {
-      sendRequest("signup").then((data) => console.log(data));
+      sendRequest()
+        .then(() => dispatch(authActions.login()))
+        .then((data) => console.log(data));
     }
     sendRequest();
   };
