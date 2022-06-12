@@ -37,12 +37,14 @@ const Auth = () => {
     console.log(inputs);
     if (isSignup) {
       sendRequest("signup")
+        .then((data) => localStorage.setItem("userId", data.user._id))
         .then(() => dispatch(authActions.login()))
         .then((data) => console.log(data))
         .then(() => navigate("/blogs"));
     } else {
       sendRequest()
         .then(() => dispatch(authActions.login()))
+        .then((data) => localStorage.setItem("userId", data.user._id))
         .then((data) => console.log(data))
         .then(() => navigate("/blogs"));
     }
