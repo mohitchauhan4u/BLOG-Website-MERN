@@ -29,6 +29,7 @@ const Auth = () => {
       })
       .catch((error) => console.error("ERROR", error));
     const data = await res.data;
+    console.log("DATA", data);
     return data;
   };
   const handleSubmit = (e) => {
