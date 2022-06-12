@@ -22,6 +22,7 @@ const UserBlog = () => {
         user.blogs &&
         user.blogs.map((blog, key) => (
           <Blog
+            isUser={true}
             key={key}
             title={blog.title}
             description={blog.description}
