@@ -18,9 +18,10 @@ const Blogs = () => {
   return (
     <div>
       {blogs &&
-        blogs.map((blog, index) => (
+        blogs.map((blog, key) => (
           <Blog
             id={blog._id}
+            key={key}
             isUser={localStorage.getItem("userId") === blog.user._id}
             title={blog.title}
             description={blog.description}

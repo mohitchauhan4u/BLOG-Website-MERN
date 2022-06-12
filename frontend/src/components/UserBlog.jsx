@@ -20,10 +20,10 @@ const UserBlog = () => {
       {" "}
       {user &&
         user.blogs &&
-        user.blogs.map((blog, index) => (
+        user.blogs.map((blog, key) => (
           <Blog
             id={blog._id}
-            key={index}
+            key={key}
             isUser={true}
             title={blog.title}
             description={blog.description}
