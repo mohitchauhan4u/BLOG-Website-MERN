@@ -27,7 +27,7 @@ const AddBlog = () => {
         image: inputs.imageURL,
         user: localStorage.getItem("userId"),
       })
-      .catch((err) => console.error("ERROR", err));
+      .catch((err) => console.log(err));
     const data = await res.data;
     return data;
   };
