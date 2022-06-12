@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
+
 const userSchema = new Schema({
   name: {
     type: String,
@@ -14,7 +15,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 8,
+    minlength: 6,
   },
   blogs: [{ type: mongoose.Types.ObjectId, ref: "Blog", required: true }],
 });
