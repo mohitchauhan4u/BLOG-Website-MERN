@@ -7,25 +7,25 @@ const Blogs = () => {
   const sendRequest = async () => {
     const res = await axios
       .get("http://localhost:5000/api/blog")
-      .catch((error) => console.error("ERROR", error));
+      .catch((err) => console.log(err));
     const data = await res.data;
     return data;
   };
   useEffect(() => {
     sendRequest().then((data) => setBlogs(data.blogs));
   }, []);
-  console.log("BLOGS", blogs);
+  console.log(blogs);
   return (
     <div>
       {blogs &&
-        blogs.map((blog, key) => (
+        blogs.map((blog, index) => (
           <Blog
+            id={blog._id}
             isUser={localStorage.getItem("userId") === blog.user._id}
-            key={key}
             title={blog.title}
             description={blog.description}
-            image={blog.image}
-            user={blog.user.name}
+            imageURL={blog.image}
+            userName={blog.user.name}
           />
         ))}
     </div>
